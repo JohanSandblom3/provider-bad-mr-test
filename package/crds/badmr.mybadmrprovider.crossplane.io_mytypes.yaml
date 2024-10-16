@@ -4,9 +4,9 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.14.0
-  name: mytypes.sample.mybadmrprovider.crossplane.io
+  name: mytypes.badmr.mybadmrprovider.crossplane.io
 spec:
-  group: sample.mybadmrprovider.crossplane.io
+  group: badmr.mybadmrprovider.crossplane.io
   names:
     categories:
     - crossplane
@@ -251,12 +251,8 @@ spec:
               atProvider:
                 description: MyTypeObservation are the observable fields of a MyType.
                 properties:
-                  configurableField:
-                    type: string
                   observableField:
                     type: string
-                required:
-                - configurableField
                 type: object
               conditions:
                 description: Conditions of the resource.

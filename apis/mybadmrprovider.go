@@ -20,7 +20,7 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	samplev1alpha1 "github.com/crossplane/provider-mybadmrprovider/apis/sample/v1alpha1"
+	badmrv1alpha1 "github.com/crossplane/provider-mybadmrprovider/apis/badmr/v1alpha1"
 	mybadmrproviderv1alpha1 "github.com/crossplane/provider-mybadmrprovider/apis/v1alpha1"
 )
 
@@ -28,7 +28,7 @@ func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
 		mybadmrproviderv1alpha1.SchemeBuilder.AddToScheme,
-		samplev1alpha1.SchemeBuilder.AddToScheme,
+		badmrv1alpha1.SchemeBuilder.AddToScheme,
 	)
 }
 
