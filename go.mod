@@ -1,4 +1,4 @@
-module github.com/crossplane/provider-template
+module github.com/crossplane/provider-mybadmrprovider
 
 go 1.21
 
