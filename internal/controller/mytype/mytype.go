@@ -138,7 +138,7 @@ func (c *external) Observe(ctx context.Context, mg resource.Managed) (managed.Ex
 	}
 
 	// These fmt statements should be removed in the real implementation.
-	fmt.Printf("Observing: %+v", cr)
+	fmt.Println("Observing:", cr.Name, cr.APIVersion)
 
 	return managed.ExternalObservation{
 		// Return false when the external resource does not exist. This lets
@@ -163,7 +163,7 @@ func (c *external) Create(ctx context.Context, mg resource.Managed) (managed.Ext
 		return managed.ExternalCreation{}, errors.New(errNotMyType)
 	}
 
-	fmt.Printf("Creating: %+v", cr)
+	fmt.Println("Creating:", cr.Name, cr.APIVersion)
 
 	return managed.ExternalCreation{
 		// Optionally return any details that may be required to connect to the
@@ -178,7 +178,7 @@ func (c *external) Update(ctx context.Context, mg resource.Managed) (managed.Ext
 		return managed.ExternalUpdate{}, errors.New(errNotMyType)
 	}
 
-	fmt.Printf("Updating: %+v", cr)
+	fmt.Println("Updating:", cr.Name, cr.APIVersion)
 
 	return managed.ExternalUpdate{
 		// Optionally return any details that may be required to connect to the
@@ -193,7 +193,7 @@ func (c *external) Delete(ctx context.Context, mg resource.Managed) error {
 		return errors.New(errNotMyType)
 	}
 
-	fmt.Printf("Deleting: %+v", cr)
+	fmt.Println("Deleting:", cr.Name, cr.APIVersion)
 
 	return nil
 }

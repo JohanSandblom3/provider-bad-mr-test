@@ -1,4 +1,4 @@
-apiVersion: sample.mybadmrprovider.crossplane.io/v1alpha1
+apiVersion: badmr.mybadmrprovider.crossplane.io/v1alpha1
 kind: MyType
 metadata:
   name: example

@@ -91,10 +91,14 @@ dev: $(KIND) $(KUBECTL)
 	@$(INFO) Creating kind cluster
 	@$(KIND) create cluster --name=$(PROJECT_NAME)-dev
 	@$(KUBECTL) cluster-info --context kind-$(PROJECT_NAME)-dev
-	@$(INFO) Installing Crossplane CRDs
-	@$(KUBECTL) apply --server-side -k https://github.com/crossplane/crossplane//cluster?ref=master
+	# @$(INFO) Installing Crossplane CRDs
+	# @$(KUBECTL) apply --server-side -k https://github.com/crossplane/crossplane//cluster?ref=master
 	@$(INFO) Installing Provider MyBadMrProvider CRDs
 	@$(KUBECTL) apply -R -f package/crds
+	@$(INFO) Applying provider config
+	@$(KUBECTL) apply -f examples/provider/
+	@$(INFO) Applying sample MR
+	@$(KUBECTL) apply -R -f examples/sample/mytype.yaml
 	@$(INFO) Starting Provider MyBadMrProvider controllers
 	@$(GO) run cmd/provider/main.go --debug
 
